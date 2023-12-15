@@ -1,0 +1,43 @@
+{%extends 'navbar.html'%}
+{%block body%}
+{% with messages = get_flashed_messages(with_categories=true,
+  category_filter = ["error", "info","danger"]) %}
+  {% if messages %}
+  {% for message in messages %}
+  <h6 style="text-align: start; margin-top: 10px; color:green">{{message}}</h6>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+<link rel="stylesheet" href="/static/form.css">
+
+<div class="container">
+  <h4 style="text-align: center; font-weight: 800; margin-bottom: 30px;">IMPORT BOOK</h4>
+  <form method="POST" ,action="">
+    <div class="mb-3">
+
+      <label for="import">How many books you want to import ?</label>
+      <input type="text" id="import" name="import"><br><br>
+
+      <label for="stock">Stock:</label>
+      <input type="text" id="stock" name="stock"><br><br>
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title"><br><br>
+
+      <label for="authors">Author:</label>
+      <input type="text" id="authors" name="authors"><br><br>
+
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" name="isbn"><br><br>
+
+      <label for="publisher">Publisher:</label>
+      <input type="text" id="publisher" name="publisher"><br><br>
+
+
+      <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

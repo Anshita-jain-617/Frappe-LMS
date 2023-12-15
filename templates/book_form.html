@@ -1,0 +1,58 @@
+{% extends 'navbar.html'%}
+{%block body%}
+<link rel="stylesheet" href="/static/form.css">
+
+<div class="container">
+  <h4>ADD BOOKS</h4>
+  <form method="POST" ,action="">
+    <div class="mb-3">
+      <label for="bookID">Book ID:</label>
+      <input type="text" id="bookID" name="bookID"><br><br>
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title"><br><br>
+
+      <label for="authors">Authors:</label>
+      <input type="text" id="authors" name="authors"><br><br>
+
+      <label for="average_rating">Rating:</label>
+      <input type="text" id="average_rating" name="average_rating"><br><br>
+
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" name="isbn"><br><br>
+
+      <label for="isbn13">ISBN-13:</label>
+      <input type="text" id="isbn13" name="isbn13"><br><br>
+
+      <label for="language_code">Language Code:</label>
+      <input type="text" id="language_code" name="language_code"><br><br>
+
+      <label for="num_pages">Number of Pages:</label>
+      <input type="text" id="num_pages" name="num_pages"><br><br>
+
+      <label for="ratings_count">Ratings Count:</label>
+      <input type="text" id="ratings_count" name="ratings_count"><br><br>
+
+      <label for="text_reviews_count">Text Reviews Count:</label>
+      <input type="text" id="text_reviews_count" name="text_reviews_count"><br><br>
+
+      <label for="publication_date">Publication Date:</label>
+      <input type="text" id="publication_date" name="publication_date"><br><br>
+
+      <label for="publisher">Publisher:</label>
+      <input type="text" id="publisher" name="publisher"><br><br>
+
+      <label for="Stock">Stock:</label>
+      <input type="text" id="Stock" name="Stock"><br><br>
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</body>
+{% endblock %}
+
+
+
+

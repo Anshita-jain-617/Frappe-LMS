@@ -1,0 +1,105 @@
+{% extends 'navbar.html'%}
+{%block body%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            color: #08080a;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 0;
+            font-weight: 800;
+        }
+        .details-container {
+            margin-left: 30%;
+        }
+        /* .btn-container {
+            margin-top: 20px;
+            text-align: center;
+        } */
+        .btn {
+            margin-right: 10px;
+            border-radius: 4px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        /* Styling for details */
+        .details-container p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .details-container strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>BOOK DETAILS</h3>
+        <div class="details-container">
+            {% if userDetails %}
+                <!-- {% set row = userDetails[0] %} -->
+                <div class="modal-body">
+                    <p><strong>Book ID:</strong> {{ userDetails[0] }}</p>
+                    <p><strong>Title:</strong> {{ userDetails[1] }}</p>
+                    <p><strong>Authors:</strong> {{ userDetails[2] }}</p>
+                    <p><strong>Rating:</strong> {{ userDetails[3] }}</p>
+                    <p><strong>ISBN:</strong> {{ userDetails[4] }}</p>
+                    <p><strong>ISBN13:</strong> {{ userDetails[5] }}</p>
+                    <p><strong>Language:</strong> {{ userDetails[6] }}</p>
+                    <p><strong>Pages:</strong> {{ userDetails[7] }}</p>
+                    <p><strong>Rating Count:</strong> {{ userDetails[8] }}</p>
+                    <p><strong>Reviews:</strong> {{ userDetails[9] }}</p>
+                    <p><strong>Publication Date:</strong> {{ userDetails[10] }}</p>
+                    <p><strong>Publisher:</strong> {{ userDetails[11] }}</p>
+                    <p><strong>Stock:</strong> {{ userDetails[12] }}</p>
+                   
+                </div>
+                <div class="btn-container">
+                    <a href="/update/{{ userDetails[0] }}" class="btn btn-warning" data-toggle="modal" data-target="#modaledit {{userDetails[0]}}">
+                        <i class="bi bi-pencil-square"></i> Update
+                    </a>
+                    <a href="/delete/{{ userDetails[0] }}" class="btn btn-danger" onclick="return confirm('Are You Sure For Delete?')">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                    <!-- <button style="background-color: #4CAF50;color: white;padding: 8px 11px;border: none; margin: 4px 2px;cursor: pointer;border-radius: 5px;">Issue Book</button> -->
+                    <a href="{{ url_for('issuebookform', book_id=userDetails[0]) }}" class="btn btn-primary">Issue Book</a>
+
+                </div>
+            {% else %}
+                <p>No data available</p>
+            {% endif %}
+        </div>
+    </div>
+{%endblock%}
+</body>
+</html>

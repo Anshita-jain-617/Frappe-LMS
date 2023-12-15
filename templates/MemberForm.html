@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+{% block body %}
+
+<link rel="stylesheet" href="/static/form.css">
+
+<div class="container">
+    <h4>ADD MEMBER</h4>
+    <form method="POST",action="">
+      <div class="mb-3" >
+        
+        <label for="name">NAME:</label>
+        <input type="text" id="name" name="name"><br><br>
+  
+        <label for="email">EMAIL:</label>
+        <input type="text" id="email" name="email"><br><br>
+  
+        <label for="phone_number">CONTACT NUMBER:</label>
+        <input type="text" id="phone_number" name="phone_number" ><br><br>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+
+    

@@ -1,0 +1,62 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25x;
+}
+
+#search {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 15px;
+    padding-left: 35px;
+}
+
+.card {
+    width: 400px;
+    margin: auto;
+    margin-top:15%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #eceef4;
+
+}
+
+body{
+    
+    background-image: url('library.jpeg') ;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    font-family: 'Brush Script MT', cursive;
+    position: relative;
+}
+
+
+
+
+ 
+
+/* Style for search container */
+.search-container {
+    position: relative;
+    width: 350px; /* Adjust the width as needed */
+}
+
+/* Style for search icon button */
+.search-icon {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    height: 100%;
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+}
+
+/* Style for the icon inside the button */
+.search-icon i {
+    color: #333; /* Change color as needed */
+}

@@ -1,0 +1,67 @@
+{%extends 'navbar.html'%}
+{%block body%}
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<div class="container mt-4">
+    <h4 style="text-align:center; margin-bottom: 20px; margin-top:40px; font-family: 'Brush Script MT', cursive; font-weight: 600;">ISSUED BOOK DETAILS<h4>
+    <div class="table-responsive">
+        <table class=" table table-striped table-bordered table-sm" style="font-size: 0.8rem;">
+            <tr style="background-color: #cbe5fa">
+                <th scope="col">SNo</th>
+                <th scope="col">ISSUE ID</th>
+                <th scope="col">MEMBER ID</th>
+                <th scope="col">BOOK ID</th>
+                <th scope="col">ISSUE ON</th>
+                <th scope="col">RETURN ON</th>
+                <th scope="col">PENALTY</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in transactionDetails %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{r.0}}</td>
+                <td>{{r.1}}</td>
+                <td>{{r.2}}</td>
+                <td>{{r.3}}</td>
+                <td>{{r.4}}</td>
+                <td>{{r.5}}</td>
+                <td>
+                    {% if r.6 == 'active' %}
+                        <span style="color: green;">ISSUED</span>
+                    {% elif r.6 == 'inactive' %}
+                        <span style="color: red;">RETURNED</span>
+                    {% elif r.6 == 'pending' %}
+                        <span style="color: orange;">OVERDUE</span>
+                    {% else %}
+                        {{ r.6 }}
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/t_update/{{r.0}}" class="btn btn-warning btn-sm my-1 mx-2" data-toggle="modal" data-target="#modaledit{{r.0}}">
+                        <i class="bi bi-pencil-square"></i> 
+                    </a>
+                    
+                    <a href="/t_delete/{{r.0}}" class="btn btn-danger btn-sm" onclick="return confirm('Are You Sure For Delete?')">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    
+{%endblock%}

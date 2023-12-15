@@ -1,0 +1,40 @@
+{%extends 'navbar.html'%}
+{%block body%}
+<link rel="stylesheet" href="/static/form.css">
+
+<div class="container">
+    <h4>ISSUE BOOK</h4>
+    <form method="POST",action="t_data">
+      <div class="mb-3" >
+      
+  
+        <label for="student_id">MEMBER ID:</label>
+        <input type="text" id="student_id" name="student_id"><br><br>
+  
+        <label for="book_id">BOOK ID:</label>
+        <input type="text" id="book_id" name="book_id"><br><br>
+        <!-- <input type="text" id="book_id" name="book_id" value="{{ book_id }}" readonly> -->
+
+  
+        <label for="issue_on">ISSUE ON:</label>
+        <input type="date" id="issue_on" name="issue_on" ><br><br>
+
+        <label for="return_date">RETURN DATE:</label>
+        <input type="date" id="return_date" name="return_date"><br><br>
+  
+        <label for="days">DAYS:</label>
+        <input type="text" id="days" name="days" ><br><br>
+
+        <label for="status">STATUS:</label>
+        <select type="text" id="status" name="status" style="width:452px; height:43px; border: 1px solid #e0dddd;border-radius: 5px; background-color:white" >
+             <option value="ISSUED">ISSUED</option>
+             <option value="RETURNED">RETURNED</option>
+             <option value="OVERDUE">OVERDUE</option>
+        </select><br><br>
+
+        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
